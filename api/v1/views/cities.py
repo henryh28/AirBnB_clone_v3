@@ -8,7 +8,8 @@ from flask import jsonify, abort, request, make_response
 from api.v1.views import app_views
 
 
-@app_views.route("/states/<state_id>/cities", methods=["GET"], strict_slashes=False)
+@app_views.route("/states/<state_id>/cities", methods=["GET"],
+                 strict_slashes=False)
 def all_cities(state_id):
     """
     Retrieves all cities in a state
@@ -49,7 +50,8 @@ def delete_city(city_id):
         abort(404)
 
 
-@app_views.route("/states/<state_id>/cities", methods=["POST"], strict_slashes=False)
+@app_views.route("/states/<state_id>/cities", methods=["POST"],
+                 strict_slashes=False)
 def create_city(state_id):
     """
     Create a new city object
