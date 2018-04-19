@@ -74,6 +74,11 @@ will show you the specific privileges the user has on the different databases.
 
 ## Authors
 *Steven Garcia* [Github](https://github.com/stvngrcia)
+
 *Lindsey Hemenez* [Github](https://github.com/hemenez)
+
 *James Choi* [Github](https://github.com/imperfectskillz)
-*Henry Hsu* [Github] (https://github.com/henryh28)
+
+*Henry Hsu* [Github](https://github.com/henryh28)
+
+
