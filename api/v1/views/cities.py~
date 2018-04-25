@@ -1,9 +1,0 @@
-#!/usr/bin/python3
-"""
-Cities API
-"""
-from models import storage
-from models.state import City
-from flask import jsonify, abort, request, make_response
-from api.v1.views import app_views
-import json
