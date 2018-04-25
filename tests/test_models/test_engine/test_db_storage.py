@@ -65,3 +65,22 @@ class testDBStorage(unittest.TestCase):
         all_stored = models.storage.all()
         models.storage.delete(state)
         self.assertTrue(all_stored["State." + state.id])
+
+    def test_get_method(self):
+        """
+        Tests the get method
+        """
+        state = State(id="29193")
+        state.save()
+        result = models.storage.get(State, 29193)
+        self.assertTrue(state, result)
+
+    def test_count_method(self):
+        """
+        Tests count method
+        """
+        result = models.storage.count()
+        self.assertIsInstance(result, int)
+
+        temp = models.storage.count("State")
+        self.assertIsIstance(temp, int)
