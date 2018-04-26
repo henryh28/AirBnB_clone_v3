@@ -14,6 +14,9 @@ def all_places(city_id):
     place_list = []
 
     city = storage.get("City", city_id)
+    if not city:
+        abort(404)
+
     for entry in city.places:
         place_list.append(entry.to_dict())
     return jsonify(place_list)
@@ -48,10 +51,6 @@ def delete_place(place_id):
                  strict_slashes=False)
 def create_place(city_id):
     """ Creates a new Place object """
-    city = storage.get("City", city_id)
-    if not city:
-        abort(404)
-
     param = request.get_json()
     if not param:
         return "Not a JSON", 400
@@ -60,8 +59,9 @@ def create_place(city_id):
     if "name" not in param.keys():
         return "Missing name", 400
 
+    city = storage.get("City", city_id)
     user = storage.get("User", param["user_id"])
-    if not user:
+    if not city or not user:
         abort(404)
 
     new_place = Place(**param)
